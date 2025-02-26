@@ -6,29 +6,47 @@ import { Dashboard } from "./modules/Dashboard/pages/Dashboard"
 import LoginPage from "./modules/Login/pages/Login"
 import ProtectedRoute from "./routes/PrivateRoutes"
 import { TaskProvider } from "./context/TaskContext"
+import { FormularioRedux } from "./modules/FormularioRedux/pages/FormularioRedux"
+import { Provider } from "react-redux"
+import store from "./reducers/store"
+import { Patterns } from "./modules/Patterns/pages/Patterns"
+import { ShadcnIndex } from "./modules/ShadcnDemo/pages/ShadcIndex"
+import { Toaster } from "./components/ui/sonner"
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <ProtectedRoute><Layout/></ProtectedRoute>,
+    element: <ProtectedRoute><Layout /></ProtectedRoute>,
     children: [
       {
         path: '/',
-        element: <ProtectedRoute><Dashboard/></ProtectedRoute>
+        element: <ProtectedRoute><Dashboard /></ProtectedRoute>
       },
       {
         path: '/formulario',
-        element: <ProtectedRoute><Formulario/></ProtectedRoute>
+        element: <ProtectedRoute><Formulario /></ProtectedRoute>
       },
       {
         path: '/formulariocontext',
-        element: <ProtectedRoute><FormularioContext/></ProtectedRoute>
+        element: <ProtectedRoute><FormularioContext /></ProtectedRoute>
+      },
+      {
+        path: '/formularioredux',
+        element: <ProtectedRoute><FormularioRedux /></ProtectedRoute>
+      },
+      {
+        path: '/patterns',
+        element: <ProtectedRoute><Patterns/></ProtectedRoute>
+      },
+      {
+        path: '/shadcn',
+        element: <ProtectedRoute><ShadcnIndex/></ProtectedRoute>
       },
     ]
   },
   {
     path: '/login',
-    element: <LoginPage/>
+    element: <LoginPage />
   },
 ])
 
@@ -36,9 +54,12 @@ function App() {
 
   return (
 
-    <TaskProvider>
-      <RouterProvider router={router}/>
-    </TaskProvider>
+    <Provider store={store}>
+      <Toaster richColors />
+      <TaskProvider>
+        <RouterProvider router={router} />
+      </TaskProvider>
+    </Provider>
 
   )
 }

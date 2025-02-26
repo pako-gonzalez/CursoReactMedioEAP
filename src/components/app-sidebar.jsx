@@ -33,6 +33,18 @@ const data = {
           title: "Formulario Context",
           url: "/formulariocontext",
         },
+        {
+          title: "Formulario Redux",
+          url: "/formularioredux",
+        },
+        {
+          title: "Patterns",
+          url: "/patterns",
+        },
+        {
+          title: "Shadcn",
+          url: "/shadcn",
+        },
       ],
     },
   ],
