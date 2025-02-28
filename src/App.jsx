@@ -12,6 +12,9 @@ import store from "./reducers/store"
 import { Patterns } from "./modules/Patterns/pages/Patterns"
 import { ShadcnIndex } from "./modules/ShadcnDemo/pages/ShadcIndex"
 import { Toaster } from "./components/ui/sonner"
+import { FormIndex } from "./modules/Forms/pages/FormIndex"
+import { ShadcnForm } from "./modules/Forms/components/ShadcnForm"
+import { TareasIndex } from "./modules/Tareas/pages/TareasIndex"
 
 const router = createBrowserRouter([
   {
@@ -41,6 +44,18 @@ const router = createBrowserRouter([
       {
         path: '/shadcn',
         element: <ProtectedRoute><ShadcnIndex/></ProtectedRoute>
+      },
+      {
+        path: '/forms',
+        element: <ProtectedRoute><FormIndex/></ProtectedRoute>
+      },
+      {
+        path: '/shadcnform',
+        element: <ProtectedRoute><ShadcnForm/></ProtectedRoute>
+      },
+      {
+        path: '/tareas',
+        element: <ProtectedRoute><TareasIndex/></ProtectedRoute>
       },
     ]
   },

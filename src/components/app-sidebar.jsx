@@ -25,26 +25,14 @@ const data = {
       title: "Home",
       url: "/",
       items: [
-        {
-          title: "Formulario",
-          url: "/formulario",
-        },
-        {
-          title: "Formulario Context",
-          url: "/formulariocontext",
-        },
-        {
-          title: "Formulario Redux",
-          url: "/formularioredux",
-        },
-        {
-          title: "Patterns",
-          url: "/patterns",
-        },
-        {
-          title: "Shadcn",
-          url: "/shadcn",
-        },
+        { title: "Formulario",         url: "/formulario"},
+        { title: "Formulario Context", url: "/formulariocontext"},
+        { title: "Formulario Redux",   url: "/formularioredux"},
+        { title: "Patterns",           url: "/patterns"},
+        { title: "Shadcn",             url: "/shadcn"},
+        { title: "Forms",              url: "/forms"},
+        { title: "Shadcn Forms",       url: "/shadcnform"},
+        { title: "Tareas",             url: "/tareas"},
       ],
     },
   ],
