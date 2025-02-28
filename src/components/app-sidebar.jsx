@@ -33,6 +33,7 @@ const data = {
         { title: "Forms",              url: "/forms"},
         { title: "Shadcn Forms",       url: "/shadcnform"},
         { title: "Tareas",             url: "/tareas"},
+        { title: "Tanstack",           url: "/tanstack"},
       ],
     },
   ],

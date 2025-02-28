@@ -15,6 +15,10 @@ import { Toaster } from "./components/ui/sonner"
 import { FormIndex } from "./modules/Forms/pages/FormIndex"
 import { ShadcnForm } from "./modules/Forms/components/ShadcnForm"
 import { TareasIndex } from "./modules/Tareas/pages/TareasIndex"
+import { TanstackIndex } from "./modules/Tanstack/pages/TanstackIndex"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { TaskDetail } from "./modules/TaskDetail/pages/TaskDetail"
 
 const router = createBrowserRouter([
   {
@@ -57,6 +61,14 @@ const router = createBrowserRouter([
         path: '/tareas',
         element: <ProtectedRoute><TareasIndex/></ProtectedRoute>
       },
+      {
+        path: '/tanstack',
+        element: <ProtectedRoute><TanstackIndex/></ProtectedRoute>
+      },
+      {
+        path: '/tareas/:id',
+        element: <ProtectedRoute><TaskDetail /></ProtectedRoute>
+      },
     ]
   },
   {
@@ -65,17 +77,27 @@ const router = createBrowserRouter([
   },
 ])
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5000,
+      refetchOnWindowFocus: true
+    }
+  }
+})
+
 function App() {
 
   return (
-
-    <Provider store={store}>
-      <Toaster richColors />
-      <TaskProvider>
-        <RouterProvider router={router} />
-      </TaskProvider>
-    </Provider>
-
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <Toaster richColors />
+        <TaskProvider>
+          <RouterProvider router={router} />
+        </TaskProvider>
+      </Provider>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
 
